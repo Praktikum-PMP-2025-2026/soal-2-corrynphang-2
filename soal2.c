@@ -47,23 +47,13 @@ Tentukan apakah semua misi dapat diselesaikan jika tiap misi memiliki prasyarat.
     node -> next = graph-> array[dest];
     graph -> array[dest]=node;
  }
- 
- void coba (graf* graph){
-    for (int i=0; i< graph->v; i++){
-        printf("%d:",i);
-        for (node* cur = graph->array[i]; cur; cur =cur -> next){
-            printf(" %d", cur ->dest);
-        }
-        printf("\n");
-    }
- }
 
  int dfs(graf* graph,int v, int* visit, int*stack){
     if(!visit[v]){
         visit[v]=1;
         stack[v]=1;
         for (int i =0; i < graph->v;i++){
-            if (graph->array){
+            if (graph->array[v]&& graph->array[i]){
                 if(!visit[i] && dfs(graph,v,visit,stack)){
                     return 1;
                 }else if (stack[i]){
